@@ -35,11 +35,7 @@ const Home = () => {
   const handleDownload = (pdfPath) => {
     if (pdfPath) {
       window.open(pdfPath, "_blank");
-      const link = document.createElement("a");
-      link.href = pdfPath;
-      link.download = pdfPath.split("/").pop();
-      link.click();
-      
+     
     }
   };
 
