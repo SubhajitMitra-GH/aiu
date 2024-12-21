@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import "./PdfView.css";
 
 const PdfViewer = () => {
   const location = useLocation();
@@ -10,7 +11,7 @@ const PdfViewer = () => {
   }
 
   return (
-    <div style={{ height: "100vh", width: "100%" }}>
+    <div className="container">
       <iframe
         src={pdfPath}
         title="PDF Viewer"
