@@ -1,12 +1,22 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './componets/Home'
+import PdfViewer from './componets/PdfViewer';
 
-const App = () => {
+
+
+function App() {
   return (
-    <div>
-      <Home/>
-    </div>
-  )
+    <Router>
+      <Routes>
+        {/* Other routes */}
+        <Route path="/" element ={<Home/>}/>
+        <Route path="/view" element={<PdfViewer />} />
+      </Routes>
+    </Router>
+  );
 }
+
+
 
 export default App

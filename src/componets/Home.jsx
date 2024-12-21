@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import MapSVG from "../assets/map.svg";
 import BrochureSVG from "../assets/brochure.svg";
@@ -8,7 +9,7 @@ import PoCSVG from "../assets/poc.svg"
 
 const Home = () => {
   
-
+  const navigate = useNavigate();
   const items = [
     {
       icon: MapSVG,
@@ -34,7 +35,7 @@ const Home = () => {
 
   const handleDownload = (pdfPath) => {
     if (pdfPath) {
-      window.open(pdfPath, "_blank");
+      navigate("/view", { state: { pdfPath } });
      
     }
   };
