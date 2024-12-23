@@ -1,185 +1,143 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Young+Serif&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Young+Serif&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    font-size: x-larger;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-    font-size: 20px;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  box-sizing: border-box;
+  transition: all 0.5s ease;
 }
 
-/* Hamburger menu */
-/* .hamburger-menu {
-    font-size: 2rem;
-    cursor: pointer;
-    position: fixed;
-    top: 1%;
-    right: 50%;
-    background-color: #939393;
-    color: rgb(0, 0, 0);
-    padding: 10px 20px;
-    border-radius: 5px;
-    z-index: 1000;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-    font-size: larger;
+/* Updated Gradient Background */
+@keyframes darkToLightBlueGradient {
+  0%,
+  100% {
+    background: linear-gradient(
+      to bottom,
+      #002d62 0%,
+      #007bb5 50%,
+      #a6d5f7 100%
+    );
   }
-  
-  .hamburger-menu:hover {
-    background-color: #747474;
+  50% {
+    background: linear-gradient(
+      to bottom,
+      #003c8f 0%,
+      #0094d9 50%,
+      #bfe7ff 100%
+    );
   }
-   */
- 
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Dim background when menu is open */
-    position: relative;
-    z-index: 999;
-  }
-  
-  .white-box {
-    position: relative;
-    height: 550px;
-    width: 450px;
-    background-color: white;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
-    box-shadow: 15px 8px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  .box {
-    height: 15vh;
-    width: 100%;
-    display: flex;
-    gap: 22px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 15px;
-    transition: transform 0.3s ease;
-  }
-  
-  .box:hover {
-    transform: scale(1.05);
-  }
-  
-  .int-box {
-    height: 100px;
-    width: 150px;
-    background-color: rgb(245, 245, 245);
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .text h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
+}
+
+/* Container */
 .container {
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  animation: darkToLightBlueGradient 10s ease infinite;
+  position: relative;
+  z-index: 999;
 }
 
-
+/* White Box */
 .white-box {
-    position: absolute;
-    height: 700px;
-    width: 500px;
-    background-color: #B3EDF3;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    box-sizing: border-box;
-    padding-left: 20px;
-    padding-right: 20px;
-    
+  position: absolute;
+  height: 600px;
+  width: 450px;
+  background-color: #b3edf3; /* Slightly transparent white */
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-
+/* Box */
 .box {
-    width: 100%; 
-    display: flex;
-    gap: 22px;
-    padding: 15px;
-    align-items: center;
-    border-radius: 20px;
-    justify-content: space-around;
-    box-sizing: border-box;
-    transition: all 200ms ease-in-out;
-    cursor: pointer;
-    background-color: white;
+  width: 100%;
+  display: flex;
+  gap: 22px;
+  padding: 15px;
+  align-items: center;
+  justify-content: space-around;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
 }
 
+.box:hover {
+  background-color: #a6d5f7; /* Light blue background on hover */
+  transform: scale(1.05);
+  animation: pulseEffect 1s infinite; /* Pulse animation on hover */
+}
 
+/* Int Box */
 .int-box {
-    height: 100px;
-    width: 120px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #B3EDF3;
+  height: 100px;
+  width: 120px;
+  background-color: rgba(243, 244, 246, 0.9);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Image Icon */
 .image-icon {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a0d8de;
+  color: pink; /* White color for icons */
+  border-radius: 10px;
 }
 
 .image-icon img {
-    max-height: 80px; 
-    max-width: 80px;
+  max-height: 80px;
+  max-width: 80px;
+  color: #ffffff;
+  border-radius: 5px;
 }
 
-
+/* Text */
 .text {
-    height: auto; 
-    width: 200px;
-    display: flex;
-    align-items: center;
-   
-    text-align:left;
-}
-.box:hover{
-    background-color: rgb(215, 215, 215);
-    border-radius: 20px;
-  
-    
+  height: auto;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  color: #2f699b; /* White text */
+  text-align: left;
 }
 
+/* Pulse Animation for Hover */
+@keyframes pulseEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
+/* Responsive Styles */
 @media screen and (max-width: 514px) {
-    .white-box{
-        width: 350px;
-        height: 600px;
-    }
-   *{
+  .white-box {
+    width: 350px;
+    height: 550px;
+  }
+  * {
     font-size: 16px;
-   }
-   .box{
-    height: 130px;
-
-   }
+  }
 }

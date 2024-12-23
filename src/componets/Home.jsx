@@ -1,75 +1,99 @@
-import React, { useState } from "react";
+// import React from "react";
 import "./Home.css";
 import MapSVG from "../assets/map.svg";
 import BrochureSVG from "../assets/brochure.svg";
 import ScheduleSVG from "../assets/schedule.svg";
-import PoCSVG from "../assets/poc.svg"
-import SchedulePDF from "../assets/Schedule.pdf"
-import BrochurePDF from "../assets/brochure.pdf"
+import PoCSVG from "../assets/poc.svg";
+
+import CampusMap from "../assets/image.png";  
 
 const Home = () => {
-  
-
   const items = [
     {
       icon: MapSVG,
       title: "Map",
-      pdf: null, 
+      link: CampusMap,  
+      type: "image"
     },
     {
       icon: BrochureSVG,
       title: "Rules and Regulations",
-      pdf: BrochurePDF,
+      link: "https://srmsigaram.com/downloads/SRMSIGARAM_2024_brochure.-rules%20and%20regulations.pdf",
+      type: "pdf"
     },
     {
       icon: ScheduleSVG,
       title: "Schedule",
-      pdf: SchedulePDF,
+      link: "https://srmsigaram.com/downloads/Events_Schedule.pdf",
+      type: "pdf"
     },
     {
       icon: PoCSVG,
       title: "PoC",
-      pdf: null,
+      link: null,
+      type: null
     },
   ];
 
-  const handleDownload = (pdfPath) => {
-    if (pdfPath) {
-      window.open(pdfPath, "_blank");
-     
+  const handleClick = (item) => {
+    if (item.link) {
+      if (item.type === "image") {
+        // Create a new window with the image
+        const newWindow = window.open();
+        newWindow.document.write(`
+          <html>
+            <head>
+              <title>Campus Map</title>
+              <style>
+                body {
+                  margin: 0;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  min-height: 100vh;
+                  background: #f0f0f0;
+                }
+                img {
+                  max-width: 100%;
+                  height: auto;
+                  display: block;
+                }
+              </style>
+            </head>
+            <body>
+              <img src="${item.link}" alt="Campus Map">
+            </body>
+          </html>
+        `);
+      } else {
+        window.open(item.link, '_blank', 'noopener,noreferrer');
+      }
     }
   };
 
-  
-
   return (
     <div>
-      
-   
-
-    
-      
-        <div className="container">
-          <div className="white-box">
-            {items.map((item, index) => (
-              <div
-                className="box"
-                key={index}
-                onClick={() => handleDownload(item.pdf)}
-              >
-                <div className="int-box">
-                  <div className="image-icon">
-                    <img src={item.icon} alt={`${item.title} Icon`} />
-                  </div>
-                </div>
-                <div className="text">
-                  <h1>{item.title}</h1>
+      <div className="container">
+        <div className="white-box">
+          {items.map((item, index) => (
+            <div
+              className="box"
+              key={index}
+              onClick={() => handleClick(item)}
+              style={{ cursor: item.link ? 'pointer' : 'default' }}
+            >
+              <div className="int-box">
+                <div className="image-icon">
+                  <img src={item.icon} alt={`${item.title} Icon`} />
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="text">
+                <h1>{item.title}</h1>
+              </div>
+            </div>
+          ))}
         </div>
-     
+      </div>
     </div>
   );
 };
